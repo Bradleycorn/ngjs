@@ -1,3 +1,7 @@
 <div class="pane">
-    <text-box ng-repeat="item in $ctrl.items" value="item.title" name="item.label"></text-box>
+    <form name="paneForm" novalidate>
+        <text-box ng-repeat="item in $ctrl.items" config="item" value="item.value"></text-box>
+
+        <button ng-click="$ctrl.finishStep(form)">Continue</button>
+    </form>
 </div>

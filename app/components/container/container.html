@@ -1,15 +1,14 @@
 <div class="container">
     <form name="form" novalidate>
-        <pane items="fields" ng-repeat="fields in $ctrl.panes" ng-if="$index === $ctrl.currentPane"></pane>
+        <pane items="fields" ng-repeat="fields in $ctrl.panes" ng-if="$index === $ctrl.currentPaneIndex" on-complete-step="$ctrl.finishStep(model)"></pane>
 
-        <button ng-click="$ctrl.finishStep(form)">Continue</button>
     </form>
 </div>
 
 <div class="debug">
     <div ng-repeat="fields in $ctrl.panes">
         <div ng-repeat="field in fields">
-            {{ field.title }}
+            {{ field.placeholder }}: {{field.value}}
         </div>
     </div>
 

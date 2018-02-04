@@ -1,15 +1,23 @@
 .pane {
     background: #eee;
-    margin: 10px;
     padding: 10px;
-    box-sizing: border-box;
 }
 
 .pane input {
     display: block;
     margin-bottom: 10px;
-    width: calc(100% - 10px);
+    width: 100%;
     border: 1px solid #aaa;
     background-color: white;
     padding: 5px 3px;
+}
+
+.pane button {
+    width: 100%;
+    padding: 10px 0px;
+    background-color: cornflowerblue;
+    color: white;
+    outline: none;
+    border: none;
+    margin: 10px 0;
 }
