@@ -1,1 +1,4 @@
-<input ng-model="$ctrl.value" name="{{$ctrl.config.name}}" placeholder="{{$ctrl.config.placeholder}}" />
+<input ng-model="$ctrl.value" name="{{$ctrl.config.name}}" placeholder="{{$ctrl.config.placeholder}}" ng-required="{{$ctrl.config.required}}" />
+<div class="error-message" ng-messages="$ctrl.formCtrl.$error" ng-show="$ctrl.formCtrl.$touched && $ctrl.formCtrl.$invalid">
+    <span ng-message="required">{{$ctrl.config.placeholder}} is required</span>
+</div>

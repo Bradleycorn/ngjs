@@ -11,18 +11,28 @@ function ContainerController($scope, $element, $attrs) {
 
     this.loadConfig = function() {
         this.panes.push([
-            {placeholder: 'First Item', name: 'first', value: null, required: false},
-            {placeholder: 'Second Item', name: 'second', value: null, required: true}
+            {placeholder: 'First Item', name: 'first', value: null, required: false },
+            {placeholder: 'Second Item', name: 'second', value: null, required: true }
         ]);
 
         this.panes.push([
-            {placeholder: 'Third Item', name: 'third', value: 3},
-            {placeholder: 'Fourth Item', name: 'fourth', value: 4}            
+            {placeholder: 'Third Item', name: 'third', value: null, required: true },
+            {placeholder: 'Fourth Item', name: 'fourth', value: null, required: true }            
         ]);
+    }
+
+    this.goToPrevious = function() {
+        this.currentPaneIndex--;
     }
 
     this.finishStep = function (model) {
         var currentPaneFields = this.panes[this.currentPaneIndex];
+
+        currentPaneFields.forEach(function(field) {
+            if (model.hasOwnProperty(field.name)) {
+                field.value = model[field.name];
+            }
+        });
 
         if (this.currentPaneIndex < this.panes.length - 1) {
             this.currentPaneIndex++;

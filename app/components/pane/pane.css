@@ -3,13 +3,28 @@
     padding: 10px;
 }
 
-.pane input {
-    display: block;
+.form-input {
     margin-bottom: 10px;
+    width: 100%;
+}
+
+.form-input .error-message {
+    background: orangered;
+    color: white;
+    padding: 5px 3px;    
+}
+
+.form-input input {
+    display: block;
     width: 100%;
     border: 1px solid #aaa;
     background-color: white;
     padding: 5px 3px;
+    outline: none;
+}
+
+.form-input input.ng-touched.ng-invalid {
+    border: 1px solid orangered;
 }
 
 .pane button {

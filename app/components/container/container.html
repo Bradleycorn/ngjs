@@ -1,16 +1,13 @@
 <div class="container">
-    <form name="form" novalidate>
-        <pane items="fields" ng-repeat="fields in $ctrl.panes" ng-if="$index === $ctrl.currentPaneIndex" on-complete-step="$ctrl.finishStep(model)"></pane>
-
-    </form>
+    <div class="nav-back" ng-if="$ctrl.currentPaneIndex > 0" ng-click="$ctrl.goToPrevious();">Back</div>
+    <pane items="fields" ng-repeat="fields in $ctrl.panes" ng-if="$index === $ctrl.currentPaneIndex" on-complete-step="$ctrl.finishStep(model)"></pane>
 </div>
 
 <div class="debug">
+    <h4>Model to be sent to the server and saved</h4>
     <div ng-repeat="fields in $ctrl.panes">
         <div ng-repeat="field in fields">
             {{ field.placeholder }}: {{field.value}}
         </div>
     </div>
-
-
 </div>
